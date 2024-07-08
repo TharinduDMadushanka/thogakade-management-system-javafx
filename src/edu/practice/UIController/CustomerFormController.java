@@ -39,5 +39,6 @@ public class CustomerFormController {
     }
 
     public void clearOnAction(ActionEvent actionEvent) {
+
     }
 }
