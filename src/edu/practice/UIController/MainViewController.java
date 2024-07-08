@@ -17,7 +17,8 @@ public class MainViewController {
         setContext("ItemForm");
     }
 
-    public void addCustomerOnAction(ActionEvent actionEvent) {
+    public void addCustomerOnAction(ActionEvent actionEvent) throws IOException {
+        setContext("CustomerForm");
     }
 
     public void placeOrderOnAction(ActionEvent actionEvent) {
