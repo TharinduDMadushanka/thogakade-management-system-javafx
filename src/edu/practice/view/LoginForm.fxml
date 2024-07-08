@@ -14,7 +14,7 @@
       <AnchorPane layoutX="340.0" layoutY="-1.0" prefHeight="446.0" prefWidth="340.0" styleClass="right-form" stylesheets="@style/loging.css">
          <children>
             <FontAwesomeIcon glyphName="USER" layoutX="141.0" layoutY="95.0" size="4em" />
-            <Label layoutX="98.0" layoutY="102.0" text="Loging Admin" textFill="#1026d1">
+            <Label layoutX="91.0" layoutY="116.0" text="Loging Admin">
                <font>
                   <Font name="Arial Bold" size="20.0" />
                </font>
