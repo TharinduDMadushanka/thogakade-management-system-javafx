@@ -30,13 +30,12 @@
     -fx-border-width: 1px;
 }
 .login-btn{
-    -fx-background-color:linear-gradient(to top, #345d44, #439974);
-    -fx-background-radius: 4px;
+    -fx-background-color: #222326;
     -fx-cursor:hand;
-    -fx-text-fill: #fff;
-    -fx-font-size: 14px;
-    -fx-font-family: "Arial";
+    -fx-background-radius: 5px;
+    -fx-text-fill: #F2F2F2;
 }
 .login-btn:hover{
-    -fx-background-color:linear-gradient(to top, #4d8964, #42b583);
+    -fx-background-color: #A67B2D;
+    -fx-text-fill: #222326;
 }
