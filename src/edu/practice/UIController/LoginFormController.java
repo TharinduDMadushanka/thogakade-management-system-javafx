@@ -22,7 +22,7 @@ public class LoginFormController {
     public Button btnLogin;
 
 
-    public void loginOnAction(ActionEvent actionEvent) {
+    public void loginOnAction(ActionEvent actionEvent) throws IOException {
         String userName = txtUserName.getText();
         String password = txtPassword.getText();
 
@@ -31,6 +31,7 @@ public class LoginFormController {
         if (selectAdmin.isPresent()) {
             if(password.equals(selectAdmin.get().getPassword())) {
                 new Alert(Alert.AlertType.INFORMATION,"Login Successful").showAndWait();
+                setUI("MainView");
             }else {
                 new Alert(Alert.AlertType.ERROR,"Incorrect Password").showAndWait();
             }
@@ -42,7 +43,7 @@ public class LoginFormController {
 
     private void setUI(String location) throws IOException {
         Stage stage = (Stage) btnLogin.getScene().getWindow();
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("edu/practice/view//" + location + ".fxml"))));
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/edu/practice/view/" + location + ".fxml"))));
         stage.show();
         stage.centerOnScreen();
     }
