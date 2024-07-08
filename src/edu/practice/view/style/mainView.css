@@ -1,19 +1,26 @@
+.left-form{
+    -fx-background-color: #D8D9D7;
+    -fx-border-color: #000;
+    -fx-border-width: .4px 0px .4px .4px;
+}
 .nav-btn{
     -fx-background-color:transparent;
     -fx-cursor:hand;
     -fx-font-size: 18px;
-    -fx-text-fill: #fff;
+    -fx-text-fill: #222326;
     -fx-font-family: Arial;
     -fx-alignment: CENTER-LEFT;
     -fx-font-weight: bold;
 }
 .sign-out{
-    -fx-background-color: #477859;
+    -fx-background-color: #222326;
     -fx-cursor:hand;
-    -fx-background-radius: 10px;
+    -fx-background-radius: 5px;
+    -fx-text-fill: #F2F2F2;
 }
 .sign-out:hover{
-    -fx-background-color: #58ae78;
+    -fx-background-color: #A67B2D;
+    -fx-text-fill: #222326;
 }
 .shadow{
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 8,0,0,0);
