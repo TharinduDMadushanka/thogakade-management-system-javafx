@@ -31,7 +31,7 @@ public class LoginFormController {
         if (selectAdmin.isPresent()) {
             if(password.equals(selectAdmin.get().getPassword())) {
                 new Alert(Alert.AlertType.INFORMATION,"Login Successful").showAndWait();
-                setUI("MainView");
+                setUI("MainForm");
             }else {
                 new Alert(Alert.AlertType.ERROR,"Incorrect Password").showAndWait();
             }

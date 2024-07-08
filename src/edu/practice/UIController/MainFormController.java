@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class MainViewController {
+public class MainFormController {
     public AnchorPane mainContext;
     public Button btnLogOut;
 
@@ -21,7 +21,8 @@ public class MainViewController {
         setContext("CustomerForm");
     }
 
-    public void placeOrderOnAction(ActionEvent actionEvent) {
+    public void placeOrderOnAction(ActionEvent actionEvent) throws IOException {
+        setContext("OrderForm");
     }
 
     public void signoutOnAction(ActionEvent actionEvent) throws IOException {

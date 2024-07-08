@@ -6,7 +6,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
-public class OrderViewController {
+public class OrderFormController {
     public AnchorPane orderContext;
     public TextField txtCustomerId;
     public TextField txtOrderId;
@@ -30,5 +30,6 @@ public class OrderViewController {
     }
 
     public void placeOrderOnAction(ActionEvent actionEvent) {
+
     }
 }
