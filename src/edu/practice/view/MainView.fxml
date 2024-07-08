@@ -10,30 +10,30 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.practice.UIController.MainViewController">
+<AnchorPane prefHeight="620.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.practice.UIController.MainViewController">
    <children>
       <BorderPane layoutY="6.0" prefHeight="720.0" prefWidth="1080.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
-            <AnchorPane prefHeight="720.0" prefWidth="284.0" styleClass="left-form" stylesheets="@style/loging.css" BorderPane.alignment="CENTER">
+            <AnchorPane prefHeight="620.0" prefWidth="218.0" styleClass="left-form" stylesheets="@style/loging.css" BorderPane.alignment="CENTER">
                <children>
-                  <FontAwesomeIcon glyphName="USER" layoutX="95.0" layoutY="138.0" size="10em" />
-                  <Label layoutX="48.0" layoutY="171.0" text="Welcome Admin">
+                  <FontAwesomeIcon glyphName="USER" layoutX="62.0" layoutY="144.0" size="10em" text="" />
+                  <Label layoutX="16.0" layoutY="171.0" text="Welcome Admin">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Button layoutX="64.0" layoutY="277.0" mnemonicParsing="false" onAction="#addItemOnAction" prefHeight="39.0" prefWidth="155.0" styleClass="nav-btn" stylesheets="@style/mainView.css" text="Add Item">
+                  <Button layoutX="32.0" layoutY="276.0" mnemonicParsing="false" onAction="#addItemOnAction" prefHeight="39.0" prefWidth="155.0" styleClass="nav-btn" stylesheets="@style/mainView.css" text="Add Item">
                      <graphic>
                         <FontAwesomeIcon fill="WHITE" glyphName="CUBE" size="2em" />
                      </graphic>
                      <font>
-                        <Font size="14.0" />
+                        <Font size="18.0" />
                      </font>
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button layoutX="64.0" layoutY="348.0" mnemonicParsing="false" onAction="#addCustomerOnAction" prefHeight="39.0" prefWidth="155.0" styleClass="nav-btn" stylesheets="@style/mainView.css" text="Add Customers">
+                  <Button layoutX="32.0" layoutY="345.0" mnemonicParsing="false" onAction="#addCustomerOnAction" prefHeight="49.0" prefWidth="197.0" styleClass="nav-btn" stylesheets="@style/mainView.css" text="Add Customers">
                      <graphic>
                         <FontAwesomeIcon fill="WHITE" glyphName="USER" size="2em" />
                      </graphic>
@@ -44,7 +44,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button layoutX="64.0" layoutY="422.0" mnemonicParsing="false" onAction="#placeOrderOnAction" prefHeight="39.0" prefWidth="155.0" styleClass="nav-btn" stylesheets="@style/mainView.css" text="Orders">
+                  <Button layoutX="32.0" layoutY="417.0" mnemonicParsing="false" onAction="#placeOrderOnAction" prefHeight="39.0" prefWidth="155.0" styleClass="nav-btn" stylesheets="@style/mainView.css" text="Orders">
                      <graphic>
                         <FontAwesomeIcon fill="WHITE" glyphName="SHOPPING_CART" size="2em" />
                      </graphic>
@@ -55,7 +55,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button layoutX="22.0" layoutY="669.0" mnemonicParsing="false" onAction="#signoutOnAction" stylesheets="@style/mainView.css">
+                  <Button fx:id="btnLogOut" layoutX="14.0" layoutY="574.0" mnemonicParsing="false" onAction="#signoutOnAction" stylesheets="@style/mainView.css">
                      <graphic>
                         <FontAwesomeIcon glyphName="SIGN_OUT" size="2em" />
                      </graphic>
@@ -64,12 +64,15 @@
                         <String fx:value="shadow" />
                      </styleClass>
                   </Button>
-                  <Line endX="139.60003662109375" layoutX="135.0" layoutY="231.0" startX="-127.59999084472656" />
+                  <Line endX="91.40000915527344" layoutX="135.0" layoutY="231.0" startX="-127.59999084472656" />
                </children>
             </AnchorPane>
          </left>
          <center>
-            <AnchorPane fx:id="mainContext" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+            <AnchorPane prefHeight="620.0" prefWidth="862.0" BorderPane.alignment="CENTER">
+               <children>
+                  <AnchorPane fx:id="mainContext" layoutX="146.0" layoutY="86.0" prefHeight="620.0" prefWidth="849.6" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children></AnchorPane>
          </center>
       </BorderPane>
    </children>

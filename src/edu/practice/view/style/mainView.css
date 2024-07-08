@@ -1,7 +1,7 @@
 .nav-btn{
     -fx-background-color:transparent;
     -fx-cursor:hand;
-    -fx-font-size: 14px;
+    -fx-font-size: 18px;
     -fx-text-fill: #fff;
     -fx-font-family: Arial;
     -fx-alignment: CENTER-LEFT;
@@ -17,4 +17,11 @@
 }
 .shadow{
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 8,0,0,0);
+}
+.white-bg{
+    -fx-background-color: #fff;
+    -fx-background-radius: 8px;
+}
+.context{
+    -fx-background-color: #D8D9D7;
 }
