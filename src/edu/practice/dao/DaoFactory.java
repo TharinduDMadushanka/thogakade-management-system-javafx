@@ -3,6 +3,8 @@ package edu.practice.dao;
 import edu.practice.dao.custom.ItemDao;
 import edu.practice.dao.custom.impl.CustomerDaoImpl;
 import edu.practice.dao.custom.impl.ItemDaoImpl;
+import edu.practice.dao.custom.impl.OrderDaoImpl;
+import edu.practice.dao.custom.impl.OrderDetailDaoImpl;
 
 public class DaoFactory {
     private static DaoFactory daoFactory;
@@ -21,10 +23,10 @@ public class DaoFactory {
                 return new ItemDaoImpl();
             case CUSTOMER:
                 return new CustomerDaoImpl();
-//            case ORDER:
-//                return new OrderDaoImpl();
-//            case ORDER_DETAIL:
-//                return new OrderDetailDaoImpl();
+            case ORDER:
+                return new OrderDaoImpl();
+            case ORDER_DETAIL:
+                return new OrderDetailDaoImpl();
             default:
                 return null;
         }
