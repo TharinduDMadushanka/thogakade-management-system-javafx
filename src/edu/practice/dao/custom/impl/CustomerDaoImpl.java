@@ -5,19 +5,21 @@ import edu.practice.dao.custom.CustomerDao;
 import edu.practice.entity.CustomerEntity;
 
 import java.sql.ResultSet;
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class CustomerDaoImpl implements CustomerDao {
     @Override
     public boolean create(CustomerEntity t) throws Exception {
         return CrudUtil.executeUpdate("INSERT INTO customer VALUES(?,?,?,?,?,?,?,?,?)",
-                t.getId(),t.getTitle(),t.getName(),t.getDob(),t.getDob(),t.getSalary(),t.getAddress(),t.getCity(),t.getProvince(),t.getPostal());
+                t.getId(), t.getTitle(), t.getName(), Date.valueOf(t.getDob()), t.getSalary(), t.getAddress(), t.getCity(), t.getProvince(), t.getPostal());
     }
 
     @Override
     public boolean update(CustomerEntity t) throws Exception {
         return CrudUtil.executeUpdate("UPDATE customer SET CustTitle=?,CustName=?,DOB=?,salary=?,CustAddress=?,City=?,Province=?,PostalCode=? WHERE CustID = ?",
-                t.getTitle(), t.getName(), t.getDob(), t.getSalary(), t.getAddress(), t.getCity(), t.getProvince(), t.getPostal(), t.getId());
+                t.getTitle(), t.getName(), Date.valueOf(t.getDob()), t.getSalary(), t.getAddress(), t.getCity(), t.getProvince(), t.getPostal(), t.getId());
     }
 
     @Override
@@ -33,7 +35,7 @@ public class CustomerDaoImpl implements CustomerDao {
                     rst.getString("CustID"),
                     rst.getString("CustTitle"),
                     rst.getString("CustName"),
-                    rst.getString("DOB"),
+                    rst.getDate("DOB").toLocalDate(), // Convert SQL Date to LocalDate
                     rst.getDouble("salary"),
                     rst.getString("CustAddress"),
                     rst.getString("City"),
@@ -55,7 +57,7 @@ public class CustomerDaoImpl implements CustomerDao {
                     rst.getString("CustID"),
                     rst.getString("CustTitle"),
                     rst.getString("CustName"),
-                    rst.getString("DOB"),
+                    rst.getDate("DOB").toLocalDate(), // Convert SQL Date to LocalDate
                     rst.getDouble("salary"),
                     rst.getString("CustAddress"),
                     rst.getString("City"),

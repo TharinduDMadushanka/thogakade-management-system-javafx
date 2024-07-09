@@ -13,9 +13,6 @@ public class CustomerEntity {
     private String province;
     private String postal;
 
-    public CustomerEntity() {
-    }
-
     public CustomerEntity(String id, String title, String name, LocalDate dob, double salary, String address, String city, String province, String postal) {
         this.id = id;
         this.title = title;
@@ -27,6 +24,8 @@ public class CustomerEntity {
         this.province = province;
         this.postal = postal;
     }
+
+    // Getters and setters
 
     public String getId() {
         return id;
@@ -98,20 +97,5 @@ public class CustomerEntity {
 
     public void setPostal(String postal) {
         this.postal = postal;
-    }
-
-    @Override
-    public String toString() {
-        return "CustomerEntity{" +
-                "id='" + id + '\'' +
-                ", title='" + title + '\'' +
-                ", name='" + name + '\'' +
-                ", dob='" + dob + '\'' +
-                ", salary=" + salary +
-                ", address='" + address + '\'' +
-                ", city='" + city + '\'' +
-                ", province='" + province + '\'' +
-                ", postal='" + postal + '\'' +
-                '}';
     }
 }
