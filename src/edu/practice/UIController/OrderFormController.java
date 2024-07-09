@@ -3,6 +3,7 @@ package edu.practice.UIController;
 import edu.practice.dto.CustomerDto;
 import edu.practice.dto.ItemDto;
 import edu.practice.dto.OrderDetailDto;
+import edu.practice.dto.OrderDto;
 import edu.practice.service.custom.impl.CustomerServiceImpl;
 import edu.practice.service.custom.impl.ItemServiceImpl;
 import edu.practice.service.custom.impl.OrderServiceImpl;
@@ -15,6 +16,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class OrderFormController {
     public AnchorPane orderContext;
@@ -104,6 +108,28 @@ public class OrderFormController {
     }
 
     public void placeOrderOnAction(ActionEvent actionEvent) {
+
+        try {
+
+            String orderId = txtOrderId.getText();
+            String customerId = txtCustomerId.getText();
+            String date = LocalDate.now().toString();
+
+            ArrayList<OrderDetailDto> orderDetailList = new ArrayList<>(orderDetails);
+
+            OrderDto order = new OrderDto(orderId,customerId,date,orderDetailList);
+            String result = orderService.placeOrder(order);
+
+            if (result != null) {
+                new Alert(Alert.AlertType.INFORMATION,"Order Placed Successfully").show();
+            }else {
+                new Alert(Alert.AlertType.INFORMATION,"Failed to place order").show();
+            }
+
+        }catch (Exception e) {
+            e.printStackTrace();
+            new Alert(Alert.AlertType.INFORMATION,"Failed to add order").show();
+        }
 
     }
 }
