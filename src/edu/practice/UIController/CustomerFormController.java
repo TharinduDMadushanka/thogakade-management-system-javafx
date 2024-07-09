@@ -54,6 +54,21 @@ public class CustomerFormController {
     }
 
     public void deleteOnAction(ActionEvent actionEvent) {
+        String customerId = txtId.getText();
+
+        try {
+
+            String result = customerService.delete(customerId);
+            if ("Success".equals(result)) {
+                loadCustomer();
+                clearFields();
+                new Alert(Alert.AlertType.CONFIRMATION, "Customer Deleted").show();
+            }
+
+        }catch (Exception e) {
+            e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, "Customer Delete Failed..!").show();
+        }
     }
 
     public void saveOnAction(ActionEvent actionEvent) {
