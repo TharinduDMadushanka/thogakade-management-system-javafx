@@ -60,12 +60,6 @@ public class ItemEntity {
 
     @Override
     public String toString() {
-        return "ItemEntity{" +
-                "itemCode='" + itemCode + '\'' +
-                ", description='" + description + '\'' +
-                ", pack='" + pack + '\'' +
-                ", qoh=" + qoh +
-                ", unitPrice=" + unitPrice +
-                '}';
+        return "ItemEntity{" + "itemCode=" + itemCode + ", description=" + description + ", pack=" + pack + ", qoh=" + qoh + ", unitPrice=" + unitPrice + '}';
     }
 }

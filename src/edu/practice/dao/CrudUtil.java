@@ -8,7 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class CrudUtil {
-    private static PreparedStatement getPreparedStatement(String sql,Object... args) throws Exception {
+    private static PreparedStatement getPreparedStatement(String sql, Object... args) throws Exception {
         Connection connection = DBConnection.getInstance().getConnection();
 
         PreparedStatement statement = connection.prepareStatement(sql);

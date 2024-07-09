@@ -14,17 +14,25 @@ public class DaoFactory {
         }
         return daoFactory;
     }
-
     public SuperDao getDao(DaoType type) {
-        switch (type) {
+        switch (type){
             case ITEM:
                 return new ItemDaoImpl();
+//            case CUSTOMER:
+//                return new CustomerDaoImpl();
+//            case ORDER:
+//                return new OrderDaoImpl();
+//            case ORDER_DETAIL:
+//                return new OrderDetailDaoImpl();
             default:
                 return null;
         }
     }
 
     public enum DaoType{
-        ITEM
+        ITEM,
+        CUSTOMER,
+        ORDER,
+        ORDER_DETAIL
     }
 }
