@@ -1,6 +1,7 @@
 package edu.practice.service;
 
 import edu.practice.service.custom.ItemService;
+import edu.practice.service.custom.impl.CustomerServiceImpl;
 import edu.practice.service.custom.impl.ItemServiceImpl;
 
 public class ServiceFactory {
@@ -19,12 +20,15 @@ public class ServiceFactory {
         switch (type){
             case ITEM:
                 return new ItemServiceImpl();
+            case CUSTOMER:
+                return new CustomerServiceImpl();
             default:
                 return null;
         }
     }
 
     public enum ServiceType {
-        ITEM
+        ITEM,
+        CUSTOMER
     }
 }
