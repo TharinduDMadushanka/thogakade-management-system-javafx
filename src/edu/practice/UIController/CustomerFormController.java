@@ -5,10 +5,7 @@ import edu.practice.service.custom.impl.CustomerServiceImpl;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 
@@ -60,6 +57,35 @@ public class CustomerFormController {
     }
 
     public void saveOnAction(ActionEvent actionEvent) {
+        String dobString = txtDob.getValue().toString();
+
+        CustomerDto customer = new CustomerDto(
+                txtId.getText(),
+                txtTitle.getText(),
+                txtName.getText(),
+                dobString,
+                Double.parseDouble(txtSalary.getText()),
+                txtAddress.getText(),
+                txtCity.getText(),
+                txtProvince.getText(),
+                txtPostal.getText()
+        );
+
+        try {
+
+            String result = customerService.save(customer);
+            if ("Success".equals(result)) {
+                customerList.add(customer);
+                customerTable.refresh();
+                clearFields();
+                new Alert(Alert.AlertType.INFORMATION, "Customer successfully added").show();
+            }
+
+        }catch (Exception e) {
+            e.printStackTrace();
+            new Alert(Alert.AlertType.INFORMATION,"Customer save Fail..!").show();
+        }
+
     }
 
     public void updateOnAction(ActionEvent actionEvent) {
