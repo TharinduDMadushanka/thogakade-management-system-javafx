@@ -3,6 +3,7 @@ package edu.practice.service;
 import edu.practice.service.custom.ItemService;
 import edu.practice.service.custom.impl.CustomerServiceImpl;
 import edu.practice.service.custom.impl.ItemServiceImpl;
+import edu.practice.service.custom.impl.OrderServiceImpl;
 
 public class ServiceFactory {
     private static ServiceFactory serviceFactory;
@@ -22,6 +23,8 @@ public class ServiceFactory {
                 return new ItemServiceImpl();
             case CUSTOMER:
                 return new CustomerServiceImpl();
+            case ORDER:
+                return new OrderServiceImpl();
             default:
                 return null;
         }
@@ -29,6 +32,7 @@ public class ServiceFactory {
 
     public enum ServiceType {
         ITEM,
-        CUSTOMER
+        CUSTOMER,
+        ORDER
     }
 }
