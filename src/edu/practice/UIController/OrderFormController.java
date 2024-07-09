@@ -1,5 +1,6 @@
 package edu.practice.UIController;
 
+import edu.practice.dto.CustomerDto;
 import edu.practice.dto.OrderDetailDto;
 import edu.practice.service.custom.impl.CustomerServiceImpl;
 import edu.practice.service.custom.impl.ItemServiceImpl;
@@ -41,6 +42,20 @@ public class OrderFormController {
     }
 
     public void customerSearchOnAction(ActionEvent actionEvent) {
+        try {
+
+            String customerId = txtCustomerId.getText();
+            CustomerDto customer = customerService.getCustomer(customerId);
+
+            if (customer != null) {
+                txtCustomerShow.setText(customer.getTitle()+". "+customer.getName()+" | "+customer.getCity());
+            }else {
+                txtCustomerShow.setText("Customer Not Found");
+            }
+
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void itemSearchOnAction(ActionEvent actionEvent) {
