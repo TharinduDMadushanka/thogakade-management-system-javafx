@@ -1,10 +1,12 @@
 package edu.practice.entity;
 
+import java.time.LocalDate;
+
 public class CustomerEntity {
     private String id;
     private String title;
     private String name;
-    private String dob;
+    private LocalDate dob;
     private double salary;
     private String address;
     private String city;
@@ -14,7 +16,7 @@ public class CustomerEntity {
     public CustomerEntity() {
     }
 
-    public CustomerEntity(String id, String title, String name, String dob, double salary, String address, String city, String province, String postal) {
+    public CustomerEntity(String id, String title, String name, LocalDate dob, double salary, String address, String city, String province, String postal) {
         this.id = id;
         this.title = title;
         this.name = name;
@@ -50,11 +52,11 @@ public class CustomerEntity {
         this.name = name;
     }
 
-    public String getDob() {
+    public LocalDate getDob() {
         return dob;
     }
 
-    public void setDob(String dob) {
+    public void setDob(LocalDate dob) {
         this.dob = dob;
     }
 

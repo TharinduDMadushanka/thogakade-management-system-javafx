@@ -7,8 +7,10 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class CustomerFormController {
@@ -51,6 +53,7 @@ public class CustomerFormController {
         loadCustomer();
 
         customerTable.setItems(customerList);
+        customerTable.setOnMouseClicked(this::selectValue);
     }
 
     public void deleteOnAction(ActionEvent actionEvent) {
@@ -72,13 +75,13 @@ public class CustomerFormController {
     }
 
     public void saveOnAction(ActionEvent actionEvent) {
-        String dobString = txtDob.getValue().toString();
+        LocalDate dob = txtDob.getValue(); // Get LocalDate from DatePicker
 
         CustomerDto customer = new CustomerDto(
                 txtId.getText(),
                 txtTitle.getText(),
                 txtName.getText(),
-                dobString,
+                dob, // Pass LocalDate
                 Double.parseDouble(txtSalary.getText()),
                 txtAddress.getText(),
                 txtCity.getText(),
@@ -104,13 +107,13 @@ public class CustomerFormController {
     }
 
     public void updateOnAction(ActionEvent actionEvent) {
-        String dobString = txtDob.getValue().toString();
+        LocalDate dob = txtDob.getValue(); // Get LocalDate from DatePicker
 
         CustomerDto customer = new CustomerDto(
                 txtId.getText(),
                 txtTitle.getText(),
                 txtName.getText(),
-                dobString,
+                dob, // Pass LocalDate
                 Double.parseDouble(txtSalary.getText()),
                 txtAddress.getText(),
                 txtCity.getText(),
@@ -119,20 +122,18 @@ public class CustomerFormController {
         );
 
         try {
-
             String result = customerService.update(customer);
             if ("Success".equals(result)) {
                 loadCustomer();
                 clearFields();
                 new Alert(Alert.AlertType.INFORMATION, "Customer successfully updated").show();
             }
-
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
-            new Alert(Alert.AlertType.INFORMATION,"Customer update Fail..!").show();
+            new Alert(Alert.AlertType.INFORMATION,"Customer update failed..!").show();
         }
-
     }
+
 
     public void clearOnAction(ActionEvent actionEvent) {
         clearFields();
@@ -162,5 +163,20 @@ public class CustomerFormController {
         txtCity.clear();
         txtProvince.clear();
         txtPostal.clear();
+    }
+
+    public void selectValue(MouseEvent mouseEvent) {
+        CustomerDto selectedCustomer = customerTable.getSelectionModel().getSelectedItem();
+        if (selectedCustomer != null) {
+            txtId.setText(selectedCustomer.getId());
+            txtTitle.setText(selectedCustomer.getTitle());
+            txtName.setText(selectedCustomer.getName());
+            txtDob.setValue(selectedCustomer.getDob());
+            txtSalary.setText(String.valueOf(selectedCustomer.getSalary()));
+            txtAddress.setText(selectedCustomer.getAddress());
+            txtCity.setText(selectedCustomer.getCity());
+            txtProvince.setText(selectedCustomer.getProvince());
+            txtPostal.setText(selectedCustomer.getPostal());
+        }
     }
 }
