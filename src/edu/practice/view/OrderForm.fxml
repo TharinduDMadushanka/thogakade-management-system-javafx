@@ -10,18 +10,17 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="620.0" prefWidth="862.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.practice.UIController.OrderFormController">
    <children>
       <AnchorPane fx:id="orderContext" layoutX="56.0" layoutY="34.0" prefHeight="620.0" prefWidth="862.0" styleClass="context" stylesheets="@style/mainView.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="590.0" prefWidth="314.0" stylesheets="@style/mainView.css">
+            <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="594.0" prefWidth="336.0" stylesheets="@style/mainView.css">
                <styleClass>
                   <String fx:value="white-bg" />
                   <String fx:value="shadow" />
                </styleClass>
                <children>
-                  <TextField fx:id="txtCustomerId" layoutX="17.0" layoutY="131.0" prefHeight="26.0" prefWidth="114.0" />
+                  <TextField fx:id="txtCustomerId" layoutX="17.0" layoutY="131.0" prefHeight="26.0" prefWidth="154.0" />
                   <Label layoutX="17.0" layoutY="111.0" opacity="0.6" prefHeight="20.0" prefWidth="80.0" text="Customer ID">
                      <font>
                         <Font name="Arial Bold" size="12.0" />
@@ -32,8 +31,8 @@
                         <Font name="Arial Bold" size="12.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtOrderId" layoutX="17.0" layoutY="76.0" prefHeight="26.0" prefWidth="114.0" />
-                  <Button layoutX="157.0" layoutY="129.0" mnemonicParsing="false" onAction="#customerSearchOnAction" prefHeight="30.0" prefWidth="66.0" styleClass="sign-out" stylesheets="@style/mainView.css" text="Search">
+                  <TextField fx:id="txtOrderId" layoutX="17.0" layoutY="76.0" prefHeight="26.0" prefWidth="154.0" />
+                  <Button layoutX="191.0" layoutY="129.0" mnemonicParsing="false" onAction="#customerSearchOnAction" prefHeight="30.0" prefWidth="66.0" styleClass="sign-out" stylesheets="@style/mainView.css" text="Search">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
@@ -45,8 +44,8 @@
                         <Font name="Arial Bold" size="12.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtItemId" layoutX="22.0" layoutY="278.0" prefHeight="26.0" prefWidth="114.0" />
-                  <Button layoutX="158.0" layoutY="276.0" mnemonicParsing="false" onAction="#itemSearchOnAction" prefHeight="30.0" prefWidth="66.0" styleClass="sign-out" stylesheets="@style/mainView.css" text="Search">
+                  <TextField fx:id="txtItemId" layoutX="22.0" layoutY="278.0" prefHeight="26.0" prefWidth="154.0" />
+                  <Button layoutX="192.0" layoutY="276.0" mnemonicParsing="false" onAction="#itemSearchOnAction" prefHeight="30.0" prefWidth="66.0" styleClass="sign-out" stylesheets="@style/mainView.css" text="Search">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
@@ -57,14 +56,14 @@
                         <Font name="Arial Bold" size="12.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtDiscount" layoutX="22.0" layoutY="374.0" prefHeight="26.0" prefWidth="114.0" />
+                  <TextField fx:id="txtDiscount" layoutX="22.0" layoutY="374.0" prefHeight="26.0" prefWidth="154.0" />
                   <Label layoutX="23.0" layoutY="409.0" opacity="0.6" prefHeight="20.0" prefWidth="60.0" text="QTY">
                      <font>
                         <Font name="Arial Bold" size="12.0" />
                      </font>
                   </Label>
                   <TextField fx:id="txtQty" layoutX="23.0" layoutY="429.0" prefHeight="26.0" prefWidth="114.0" />
-                  <Button layoutX="156.0" layoutY="427.0" mnemonicParsing="false" onAction="#addItemOnAction" prefHeight="30.0" prefWidth="106.0" styleClass="sign-out" stylesheets="@style/mainView.css" text="Add Item">
+                  <Button layoutX="190.0" layoutY="427.0" mnemonicParsing="false" onAction="#addItemOnAction" prefHeight="30.0" prefWidth="106.0" styleClass="sign-out" stylesheets="@style/mainView.css" text="Add Item">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
