@@ -13,6 +13,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 
+import java.util.ArrayList;
+
 public class ItemFormController {
     public AnchorPane itemContext;
     public TextField txtCode;
@@ -68,6 +70,26 @@ public class ItemFormController {
     }
 
     public void updateOnAction(ActionEvent actionEvent) {
+        ItemDto item = new ItemDto(
+                txtCode.getText(),
+                txtDescription.getText(),
+                txtPackSize.getText(),
+                Integer.parseInt(txtQoh.getText()),
+                Double.parseDouble(txtUnitPrice.getText())
+        );
+        try {
+
+            String result = itemService.update(item);
+            if ("Success".equals(result)) {
+                loadItem();
+                clearFields();
+                new Alert(Alert.AlertType.INFORMATION, "Item Updated").showAndWait();
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+            new Alert(Alert.AlertType.INFORMATION,"Error in update.!").show();
+        }
     }
 
     public void deleteOnAction(ActionEvent actionEvent) {
@@ -79,5 +101,19 @@ public class ItemFormController {
         txtPackSize.clear();
         txtQoh.clear();
         txtUnitPrice.clear();
+    }
+
+    private void loadItem(){
+        try {
+
+            ArrayList<ItemDto> items = itemService.getAll();
+            if(items != null){
+                itemList.setAll(items);
+                itemTable.setItems(itemList);
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }
