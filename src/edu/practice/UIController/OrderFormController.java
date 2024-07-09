@@ -48,43 +48,40 @@ public class OrderFormController {
     }
 
     public void customerSearchOnAction(ActionEvent actionEvent) {
-        try {
-
+        try{
             String customerId = txtCustomerId.getText();
             CustomerDto customer = customerService.getCustomer(customerId);
 
-            if (customer != null) {
+            if(customer != null){
                 txtCustomerShow.setText(customer.getTitle()+". "+customer.getName()+" | "+customer.getCity());
             }else {
-                txtCustomerShow.setText("Customer Not Found");
+                txtCustomerShow.setText("Customer not fount!");
             }
 
-        }catch (Exception e) {
+        }catch (Exception e){
             e.printStackTrace();
         }
     }
 
     public void itemSearchOnAction(ActionEvent actionEvent) {
-
         try {
 
             String itemId = txtItemId.getText();
             ItemDto item = itemService.get(itemId);
 
-            if (item != null) {
+            if(item != null){
                 txtItemShow.setText(item.getDescription());
-            }else
-                txtItemShow.setText("Item Not Found");
+            }else {
+                txtItemShow.setText("Item not fount!");
+            }
 
-        }catch (Exception e) {
+        }catch (Exception e){
             e.printStackTrace();
         }
-
     }
 
     public void addItemOnAction(ActionEvent actionEvent) {
-
-        try{
+        try {
 
             String itemId = txtItemId.getText();
             int qty = Integer.parseInt(txtQty.getText());
@@ -93,22 +90,20 @@ public class OrderFormController {
             OrderDetailDto orderDetail = new OrderDetailDto("",itemId,qty,discount);
             orderDetails.add(orderDetail);
 
-            new Alert(Alert.AlertType.INFORMATION, "Item Added Successfully").show();
+            new Alert(Alert.AlertType.INFORMATION,"Successfully added item!").show();
 
             txtItemId.clear();
             txtQty.clear();
             txtDiscount.clear();
             txtItemShow.clear();
 
-        }catch (Exception e) {
+        }catch (Exception e){
             e.printStackTrace();
-            new Alert(Alert.AlertType.INFORMATION,"Failed to add item").show();
+            new Alert(Alert.AlertType.INFORMATION,"Failed to add item!").show();
         }
-
     }
 
     public void placeOrderOnAction(ActionEvent actionEvent) {
-
         try {
 
             String orderId = txtOrderId.getText();
@@ -120,16 +115,18 @@ public class OrderFormController {
             OrderDto order = new OrderDto(orderId,customerId,date,orderDetailList);
             String result = orderService.placeOrder(order);
 
-            if (result != null) {
-                new Alert(Alert.AlertType.INFORMATION,"Order Placed Successfully").show();
+            if(result != null){
+                new Alert(Alert.AlertType.INFORMATION,"Successfully placed order!").show();
+                colItemCode.setCellValueFactory(null);
+                colQty.setCellValueFactory(null);
+                colDiscount.setCellValueFactory(null);
             }else {
-                new Alert(Alert.AlertType.INFORMATION,"Failed to place order").show();
+                new Alert(Alert.AlertType.INFORMATION,"Failed to place order!").show();
             }
 
-        }catch (Exception e) {
+        }catch (Exception e){
             e.printStackTrace();
-            new Alert(Alert.AlertType.INFORMATION,"Failed to add order").show();
+            new Alert(Alert.AlertType.INFORMATION,"Failed to add order!").show();
         }
-
     }
 }

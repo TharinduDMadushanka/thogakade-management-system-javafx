@@ -40,7 +40,7 @@ public class OrderEntity {
 
     @Override
     public String toString() {
-        return "OrderEntity{" +
+        return "OrderDetailEntity{" +
                 "orderId='" + orderId + '\'' +
                 ", custId='" + custId + '\'' +
                 ", date='" + date + '\'' +
