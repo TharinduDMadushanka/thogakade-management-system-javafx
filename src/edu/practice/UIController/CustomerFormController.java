@@ -89,6 +89,34 @@ public class CustomerFormController {
     }
 
     public void updateOnAction(ActionEvent actionEvent) {
+        String dobString = txtDob.getValue().toString();
+
+        CustomerDto customer = new CustomerDto(
+                txtId.getText(),
+                txtTitle.getText(),
+                txtName.getText(),
+                dobString,
+                Double.parseDouble(txtSalary.getText()),
+                txtAddress.getText(),
+                txtCity.getText(),
+                txtProvince.getText(),
+                txtPostal.getText()
+        );
+
+        try {
+
+            String result = customerService.update(customer);
+            if ("Success".equals(result)) {
+                loadCustomer();
+                clearFields();
+                new Alert(Alert.AlertType.INFORMATION, "Customer successfully updated").show();
+            }
+
+        }catch (Exception e) {
+            e.printStackTrace();
+            new Alert(Alert.AlertType.INFORMATION,"Customer update Fail..!").show();
+        }
+
     }
 
     public void clearOnAction(ActionEvent actionEvent) {
