@@ -93,6 +93,18 @@ public class ItemFormController {
     }
 
     public void deleteOnAction(ActionEvent actionEvent) {
+        try {
+
+            String result = itemService.delete(txtCode.getText());
+            if ("Success".equals(result)) {
+                loadItem();
+                clearFields();
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+            new Alert(Alert.AlertType.INFORMATION,"Error in delete.!").show();
+        }
     }
 
     private void clearFields(){
