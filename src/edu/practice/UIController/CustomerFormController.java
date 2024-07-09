@@ -51,6 +51,8 @@ public class CustomerFormController {
         colProvince.setCellValueFactory(new PropertyValueFactory<>("province"));
         colPostal.setCellValueFactory(new PropertyValueFactory<>("postal"));
 
+        loadCustomer();
+
         customerTable.setItems(customerList);
     }
 
@@ -64,7 +66,7 @@ public class CustomerFormController {
     }
 
     public void clearOnAction(ActionEvent actionEvent) {
-
+        clearFields();
     }
 
     public void loadCustomer(){
@@ -79,5 +81,17 @@ public class CustomerFormController {
         }catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    public void clearFields(){
+        txtId.clear();
+        txtTitle.clear();
+        txtName.clear();
+        txtDob.setValue(null);
+        txtSalary.clear();
+        txtAddress.clear();
+        txtCity.clear();
+        txtProvince.clear();
+        txtPostal.clear();
     }
 }
