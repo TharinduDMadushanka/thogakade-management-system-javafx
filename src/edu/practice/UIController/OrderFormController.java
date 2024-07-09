@@ -9,6 +9,7 @@ import edu.practice.service.custom.impl.OrderServiceImpl;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -78,6 +79,28 @@ public class OrderFormController {
     }
 
     public void addItemOnAction(ActionEvent actionEvent) {
+
+        try{
+
+            String itemId = txtItemId.getText();
+            int qty = Integer.parseInt(txtQty.getText());
+            int discount = Integer.parseInt(txtDiscount.getText());
+
+            OrderDetailDto orderDetail = new OrderDetailDto("",itemId,qty,discount);
+            orderDetails.add(orderDetail);
+
+            new Alert(Alert.AlertType.INFORMATION, "Item Added Successfully").show();
+
+            txtItemId.clear();
+            txtQty.clear();
+            txtDiscount.clear();
+            txtItemShow.clear();
+
+        }catch (Exception e) {
+            e.printStackTrace();
+            new Alert(Alert.AlertType.INFORMATION,"Failed to add item").show();
+        }
+
     }
 
     public void placeOrderOnAction(ActionEvent actionEvent) {
