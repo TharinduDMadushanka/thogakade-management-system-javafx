@@ -1,6 +1,7 @@
 package edu.practice.UIController;
 
 import edu.practice.dto.CustomerDto;
+import edu.practice.dto.ItemDto;
 import edu.practice.dto.OrderDetailDto;
 import edu.practice.service.custom.impl.CustomerServiceImpl;
 import edu.practice.service.custom.impl.ItemServiceImpl;
@@ -59,6 +60,21 @@ public class OrderFormController {
     }
 
     public void itemSearchOnAction(ActionEvent actionEvent) {
+
+        try {
+
+            String itemId = txtItemId.getText();
+            ItemDto item = itemService.get(itemId);
+
+            if (item != null) {
+                txtItemShow.setText(item.getDescription());
+            }else
+                txtItemShow.setText("Item Not Found");
+
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
     public void addItemOnAction(ActionEvent actionEvent) {
